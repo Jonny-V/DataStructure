@@ -19,7 +19,6 @@ public:
     List():head(new Node()) { }
 
     bool isEmpty();
-    Node *findPrevious(int pos);
     //在pos前端插入
     void insert(int pos, int key);
     void del(int pos);
@@ -28,14 +27,14 @@ public:
     void printList();
     ~List()
     {
-        if( head->next != nullptr)
-        {
+        if(head->next != nullptr){
             Node *temp = head;
-            while( temp->next != nullptr)
+            while( head->next != nullptr)
             {
                 temp = head->next->next;
                 delete head->next;
                 head->next = temp;
+                --head->key;
             }
             delete head->next;
         }
@@ -43,7 +42,10 @@ public:
     } 
     
 private:
+    Node *findPrevious(int pos);
+
     Node *head;
+    
 };
 
 
