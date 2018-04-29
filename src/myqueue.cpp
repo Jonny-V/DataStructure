@@ -48,5 +48,6 @@ void queue::Myqueue::printQueue()
             std::cout << ptr->key <<  " ";
             ptr = ptr->next;
         }
+        std::cout << std::endl;
     }
 }

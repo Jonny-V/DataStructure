@@ -16,7 +16,7 @@ namespace queue{
         Myqueue()
         {
             head = new Node();
-            head = tail;
+            tail = head;
         }
         bool isEmpty();
         void push(int key);
