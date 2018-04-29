@@ -1,5 +1,6 @@
 #include"list.h"
 #include"doublelist.h"
+#include"mystack.h"
 #include<iostream>
 
 using namespace std;
@@ -23,5 +24,15 @@ int main()
     blist.printDoubleList();
     blist.del(99);
     blist.printDoubleList();
+
+    Mystack s;
+    s.pop();
+    for(int i = 0; i<100; i++)
+        s.push(i+100);
+    s.printStack();
+    s.push(11);
+    s.push(12);
+    s.pop();
+    s.printStack();
     return 0;
 }
