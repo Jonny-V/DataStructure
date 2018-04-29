@@ -15,6 +15,7 @@ public:
     ~Mystack()
     {
         delete []stack;
+        stack = nullptr;
     }
 
     bool isEmpty();

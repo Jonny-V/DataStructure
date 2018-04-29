@@ -1,9 +1,11 @@
 #include"list.h"
 #include"doublelist.h"
 #include"mystack.h"
+#include"myqueue.h"
 #include<iostream>
 
 using namespace std;
+using namespace queue;
 
 int main()
 {
@@ -34,5 +36,13 @@ int main()
     s.push(12);
     s.pop();
     s.printStack();
+
+    Myqueue q;
+    q.pop();
+    for(int i = 0; i < 10; i++)
+        q.push(i);
+    q.printQueue();
+    q.pop();
+    q.printQueue();
     return 0;
 }
