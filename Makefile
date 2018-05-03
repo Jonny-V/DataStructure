@@ -1,23 +1,27 @@
-SOURCES = $(shell find ./src -name "*.cpp")
+SOURCES = $(shell find . -name "*.cpp")
 OBJECTS = $(patsubst %.cpp, %.o, $(SOURCES))
-MAINS = main.cpp
+DEPENDENCY = $(shell find . -name "*.d")
+TARGETS = proc
 
 CC = g++
-CCFLAGS = -g -c -Wall -std=c++11 -I include
-CCFLAG = -g -Wall -std=c++11 -I include
-LD = ld
+CCFLAGS = -g -c -Wall -std=c++11 -MMD -MP -MF $*.d
+FILEPATH = -I include
+#LDFLAGS = 
 
-all:$(OBJECTS) proc
-.cpp.o:
-	@echo complie CPP source $< ...
-	$(CC) $(CCFLAGS) $< -o $@
-proc:$(SOURCES)
-	@echo complie $(MAINS) source...
-	$(CC) $(CCFLAG) -o proc $(SOURCES) $(MAINS) 
+.PHONY:all
+all:$(TARGETS)
+$(TARGETS):$(OBJECTS)
+	@echo ld $@ ...
+	$(CC) -o $@ $(LDFLAGS) $^
+%.o:%.cpp
+	@echo complie $@ source...
+	$(CC) -o $@ $(CCFLAGS) $(FILEPATH) $<
+
+include $(DEPENDENCY)
 
 .PHONY:clean
 clean:
-	rm -f $(OBJECTS) $(MAINSOBJ) proc
+	-rm -f $(OBJECTS) $(DEPENDENCY) $(TARGETS)
 
 .PHONY:debug
 debug:

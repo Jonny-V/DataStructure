@@ -9,7 +9,7 @@ public:
     Mystack(): size(STACKSIZE),top(0)
     {
         stack = new int[STACKSIZE];
-        for(int i = 0; i < STACKSIZE; i++)
+        for(unsigned int i = 0; i < STACKSIZE; i++)
             stack[i] = 0;
     }
     ~Mystack()

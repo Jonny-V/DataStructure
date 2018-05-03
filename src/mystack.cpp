@@ -13,7 +13,7 @@ void Mystack::push(int key)
     }
     else{
         int *temp = new int[size * 2];
-        for(int i = 0; i < top; i++)
+        for(unsigned int i = 0; i < top; i++)
             temp[i] = stack[i];
         size *= 2;
         delete []stack;
@@ -43,7 +43,7 @@ void Mystack::printStack()
         std::cout << "Empty Stack" << std::endl;
     }
     else{
-        for(int i = 0; i < top; i++)
+        for(unsigned int i = 0; i < top; i++)
             std::cout<< stack[i] << " ";
         std::cout << std::endl;
     }
