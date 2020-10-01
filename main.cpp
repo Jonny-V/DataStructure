@@ -1,4 +1,5 @@
 #include"list.h"
+//Header Files
 #include"doublelist.h"
 #include"mystack.h"
 #include"myqueue.h"
@@ -20,7 +21,9 @@ int main()
     DoubleList blist;
     cout<<"\n\n\n";
     for(int i = 15; i < 25; i++)
+    {
         blist.add(i);
+    }
     blist.printDoubleList();
     blist.insert(21,99);
     blist.printDoubleList();
@@ -30,7 +33,9 @@ int main()
     Mystack s;
     s.pop();
     for(int i = 0; i<100; i++)
+    {
         s.push(i+100);
+    }
     s.printStack();
     s.push(11);
     s.push(12);
@@ -40,7 +45,9 @@ int main()
     Myqueue q;
     q.pop();
     for(int i = 0; i < 10; i++)
+    {
         q.push(i);
+    }
     q.printQueue();
     q.pop();
     q.printQueue();
